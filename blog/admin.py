@@ -9,7 +9,7 @@ class Autor(admin.ModelAdmin):
 
 @admin.register(Post)
 class Post(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created_at', 'slug')
+    list_display = ('title', 'author', 'created_at', 'slug', 'is_published')
     list_filter = ('author', 'created_at')
     search_fields = ('title', 'content')
     prepopulated_fields = {"slug": ("title",)}
