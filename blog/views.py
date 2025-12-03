@@ -13,7 +13,7 @@ def post_detail(request, slug):
 
 def  author_detail(request, slug):
     author = get_object_or_404(Author, slug=slug)
-    posts = Post.objects.filter(is_published=True).order_by('-created_at')
+    posts = Post.objects.filter(is_published=True, author__slug=slug).order_by('-created_at')
     context = {'posts': posts,
                'author': author}
     return render(request, 'blog/author_detail.html', context)
