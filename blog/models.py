@@ -7,6 +7,10 @@ class Author (models.Model):
     slug = models.SlugField(max_length=50, unique=True, blank=True)
     email = models.EmailField(max_length=254)
 
+    class Meta:
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
+
 
     def __str__(self):
         return self.name
@@ -24,6 +28,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Пост"
+        verbose_name_plural = "Посты"
 
     def __str__(self):
         return self.title
