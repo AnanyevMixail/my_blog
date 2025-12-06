@@ -9,3 +9,7 @@ urlpatterns = [
     path('post/<slug:slug>/', views.post_detail, name='post_detail'),
     path('author/<slug:slug>/', views.author_detail, name='author_detail'),
 ]
+
+
+admin.site.site_header = 'Панель администрирования'
+admin.site.index_title = 'Управление блогом'
